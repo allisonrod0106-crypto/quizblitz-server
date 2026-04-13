@@ -1,8 +1,10 @@
 const express = require('express')
 const cors = require('cors')
 
+
 const app = express()
 const PORT = 3000
+const questions = require('./data/questions')
 
 // Middleware
 app.use(cors())
@@ -16,4 +18,9 @@ app.get('/', (req, res) => {
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`)
+})
+
+// GET /api/questions — returns all questions
+app.get('/api/questions', (req, res) => {
+  res.json(questions)
 })
