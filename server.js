@@ -67,3 +67,8 @@ app.get('/api/scores', (req, res) => {
   const sorted = [...scores].sort((a, b) => b.score - a.score)
   res.json(sorted)
 })
+
+// ── Start ────────────────────────────────────────────────────────
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`)
+})
