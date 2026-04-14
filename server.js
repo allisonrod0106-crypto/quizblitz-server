@@ -10,6 +10,7 @@ const Score = require('./models/Score')
 const User = require('./models/User')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const verifyToken = require('./middleware/verifyToken')
 
 // Middleware
 app.use(cors())
@@ -44,19 +45,19 @@ app.get('/api/questions/random', (req, res) => {
 
 
 // POST /api/scores — submit a new score
-app.post('/api/scores', async (req, res) => {
-  const { playerName, score, totalQuestions } = req.body
+app.post('/api/scores', verifyToken, async (req, res) => {
+  const { score, totalQuestions } = req.body
 
-  if (!playerName || score === undefined || !totalQuestions) {
-    return res.status(400).json({ error: 'playerName, score, and totalQuestions are required' })
+  if (score === undefined || !totalQuestions) {
+    return res.status(400).json({ error: 'score and totalQuestions are required' })
   }
 
   try {
     const newScore = await Score.create({
-      playerName,
+      userId: req.user.userId,
+      playerName: req.user.email,
       score,
       totalQuestions
-      // date is set automatically by the schema default
     })
     console.log('Score saved:', newScore)
     res.status(201).json(newScore)
