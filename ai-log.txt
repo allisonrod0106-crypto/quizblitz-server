@@ -1,0 +1,5 @@
+[ChatGPT] “My Vue component isn’t updating when Pinia state changes. What could cause that?”
+
+[ChatGPT] “Why is my fetch call returning ‘Failed to fetch’ even though my backend is running?”
+
+[ChatGPT] “My MongoDB data isn’t persisting after restart. Can you check my routes?”

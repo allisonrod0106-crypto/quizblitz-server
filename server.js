@@ -11,9 +11,15 @@ const User = require('./models/User')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const verifyToken = require('./middleware/verifyToken')
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://allisonrod0106-crypto.github.io'
+]
 
 // Middleware
-app.use(cors())
+app.use(cors({
+  origin: allowedOrigins
+}))
 app.use(express.json())
 
 // Test route
@@ -42,6 +48,7 @@ app.get('/api/questions/random', (req, res) => {
 
   res.json(shuffled.slice(0, 10))
 })
+
 
 
 // POST /api/scores — submit a new score
