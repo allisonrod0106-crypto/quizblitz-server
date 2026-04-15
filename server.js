@@ -163,3 +163,5 @@ mongoose.connect(process.env.MONGODB_URI)
 
 console.log('MONGODB_URI exists?', !!process.env.MONGODB_URI)
 console.log('TEST_VAR:', process.env.TEST_VAR)
+console.log('RAILWAY_SERVICE_NAME:', process.env.RAILWAY_SERVICE_NAME || 'missing')
+console.log('TEST_VAR:', process.env.TEST_VAR)
