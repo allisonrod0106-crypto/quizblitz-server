@@ -1,6 +1,5 @@
-if (!process.env.RAILWAY_SERVICE_NAME) {
-  require('dotenv').config()
-}
+
+require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
@@ -163,10 +162,10 @@ mongoose.connect(process.env.MONGODB_URI)
     process.exit(1)
   })
 
-// console.log('MONGODB_URI exists?', !!process.env.MONGODB_URI)
-// console.log('TEST_VAR:', process.env.TEST_VAR)
-// console.log('RAILWAY_SERVICE_NAME:', process.env.RAILWAY_SERVICE_NAME || 'missing')
-// console.log('TEST_VAR:', process.env.TEST_VAR)
-console.log('FOO:', process.env.FOO)
-console.log('RAILWAY_SERVICE_NAME:', process.env.RAILWAY_SERVICE_NAME)
-process.exit(0)
+console.log('MONGODB_URI exists?', !!process.env.MONGODB_URI)
+console.log('TEST_VAR:', process.env.TEST_VAR)
+console.log('RAILWAY_SERVICE_NAME:', process.env.RAILWAY_SERVICE_NAME || 'missing')
+console.log('TEST_VAR:', process.env.TEST_VAR)
+// console.log('FOO:', process.env.FOO)
+// console.log('RAILWAY_SERVICE_NAME:', process.env.RAILWAY_SERVICE_NAME)
+// process.exit(0)
