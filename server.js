@@ -160,3 +160,6 @@ mongoose.connect(process.env.MONGODB_URI)
     console.error('MongoDB connection failed:', error.message)
     process.exit(1)
   })
+
+console.log('MONGODB_URI exists?', !!process.env.MONGODB_URI)
+console.log('TEST_VAR:', process.env.TEST_VAR)
